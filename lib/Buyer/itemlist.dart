@@ -35,6 +35,10 @@ class _itemlistState extends State<itemlist> {
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
           if (snapshot.hasData) {
             List ar = snapshot.data!;
+
+            int prix = ar[0]['Price'];
+            int qaunt = ar[0]['Quant'];
+
             return Column(children: [
               Row(
                 children: [
@@ -70,14 +74,15 @@ class _itemlistState extends State<itemlist> {
               ),
               Container(
                   child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/buyermenu',
-                  );
+                onPressed: () async {
+                  int a = await Databaseapp.instance.deletetrashbyid(widget.id);
+                  Navigator.pop(context);
+                  int pay = prix * qaunt;
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text("${pay}")));
                 },
                 child: Text(
-                  "BUY",
+                  "Payé",
                   style: TextStyle(fontSize: 35),
                 ),
                 style: ElevatedButton.styleFrom(

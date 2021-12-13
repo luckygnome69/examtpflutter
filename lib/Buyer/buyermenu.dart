@@ -13,6 +13,7 @@ class buyermenu extends StatefulWidget {
 class _buyermenuState extends State<buyermenu> {
   String type_trash = "plastique";
   List ab = [];
+  String msg = "";
   var typetrashitems = [
     "plastique",
     "verre",
@@ -23,7 +24,18 @@ class _buyermenuState extends State<buyermenu> {
 
   Widget ls(List ar, String typetrash) {
     if (ar.isEmpty) {
-      return Text("Nothing");
+      return Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              msg,
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            )),
+      );
     }
     return ListView.builder(
         itemCount: ab.length,
@@ -32,11 +44,15 @@ class _buyermenuState extends State<buyermenu> {
         itemBuilder: (context, index) {
           return Container(
             child: TextButton(
-              child: Text('${index} --- ${ab[index]['name']}'),
+              child: Text('${index + 1} --- ${ab[index]['name']}'),
               onPressed: () {
                 itemInfoSender sender =
                     new itemInfoSender(ab[index]['_id_trash'], typetrash);
-                Navigator.pushNamed(context, '/itemlist', arguments: sender);
+                Navigator.pushNamed(context, '/itemlist', arguments: sender)
+                    .then((_) => setState(() {
+                          ab = [];
+                          msg = "";
+                        }));
               },
             ),
           );
@@ -47,7 +63,7 @@ class _buyermenuState extends State<buyermenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Buy menu"),
+        title: Text("liste déchets"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -79,6 +95,7 @@ class _buyermenuState extends State<buyermenu> {
                         .getUserbyTrashType(type_trash);
 
                     setState(() {
+                      msg = "aucun résultat";
                       ab = t;
                     });
                   },

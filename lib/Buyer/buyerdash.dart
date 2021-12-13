@@ -27,7 +27,7 @@ class _buyerdash extends State<buyerdash> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Buyer"),
+        title: Text("collect"),
       ),
       body: FutureBuilder<Users>(
         future: getuserbyid(
@@ -41,30 +41,66 @@ class _buyerdash extends State<buyerdash> {
                 children: [
                   Container(
                       width: MediaQuery.of(context).size.width * 0.5,
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.25,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              "Welcome :",
+                              "Bienvenue :",
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          Container(
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                '${ar.name}  ${ar.lastname}',
-                                style: TextStyle(fontSize: 20),
+                          Row(
+                            children: [
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(' Nom : ',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      )),
+                                ),
                               ),
-                            ),
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(' ${ar.name} ',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontStyle: FontStyle.italic,
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
+                          Row(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(' prenom : ',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    )),
+                              ),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(' ${ar.lastname} ',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontStyle: FontStyle.italic,
+                                    )),
+                              ),
+                            ],
+                          )
                         ],
                       )),
                   Container(
@@ -84,12 +120,12 @@ class _buyerdash extends State<buyerdash> {
                   );
                 },
                 child: Text(
-                  "BUY",
+                  "liste déchets",
                   style: TextStyle(fontSize: 35),
                 ),
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(200, 50),
-                  maximumSize: const Size(200, 50),
+                  minimumSize: const Size(300, 50),
+                  maximumSize: const Size(300, 50),
                 ),
               ))
             ]);

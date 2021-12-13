@@ -19,7 +19,7 @@ class _login extends State<login> {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.teal,
-        title: Text("Login"),
+        title: Text("Se Connecter"),
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
@@ -29,10 +29,10 @@ class _login extends State<login> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: "Username"),
+                decoration: InputDecoration(labelText: "Nom d'utilisateur"),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return "Username is required";
+                    return "Nom d'utilisateur est nécessaire";
                   }
                   return null;
                 },
@@ -43,10 +43,10 @@ class _login extends State<login> {
                 },
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: "password"),
+                decoration: InputDecoration(labelText: "Mot de passe"),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return "phone is required";
+                    return "un mot de passe est nécessaire";
                   }
                   return null;
                 },
@@ -76,14 +76,14 @@ class _login extends State<login> {
                           );
                         }
                       },
-                      child: const Text('Login'),
+                      child: const Text('Envoyer'),
                     ),
-                    Text('You dont have a account ?'),
+                    Text('Vous n\'avez pas de compte ?'),
                     TextButton(
                         onPressed: () async {
                           Navigator.pushNamed(context, '/singup');
                         },
-                        child: Text("Singup here"))
+                        child: Text("s’inscrire"))
                   ],
                 )),
               ),

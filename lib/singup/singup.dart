@@ -27,7 +27,7 @@ class _singup extends State<singup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sing Up"),
+        title: Text("s’inscrire"),
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
@@ -38,10 +38,10 @@ class _singup extends State<singup> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  decoration: InputDecoration(labelText: "User name"),
+                  decoration: InputDecoration(labelText: "Nom d'utilisateur"),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Email is required";
+                      return "Nom d'utilisateur est nécessaire";
                     }
                     return null;
                   },
@@ -52,10 +52,10 @@ class _singup extends State<singup> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Password"),
+                  decoration: InputDecoration(labelText: "mot de passe"),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Password is required";
+                      return "mot de passe est nécessaire";
                     }
                     return null;
                   },
@@ -66,10 +66,10 @@ class _singup extends State<singup> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Name"),
+                  decoration: InputDecoration(labelText: "Nom"),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "name is required";
+                      return "Nom est nécessaire";
                     }
                     return null;
                   },
@@ -80,10 +80,10 @@ class _singup extends State<singup> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Last Name"),
+                  decoration: InputDecoration(labelText: "prenom"),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "last name is required";
+                      return "prenom est nécessaire";
                     }
                     return null;
                   },
@@ -97,7 +97,7 @@ class _singup extends State<singup> {
                   decoration: InputDecoration(labelText: "adress"),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "adress is required";
+                      return "adress est nécessaire";
                     }
                     return null;
                   },
@@ -122,7 +122,7 @@ class _singup extends State<singup> {
                         SizedBox(
                           width: 10,
                         ),
-                        Text("Seller")
+                        Text("dépôt")
                       ],
                     ),
                     Row(
@@ -138,7 +138,7 @@ class _singup extends State<singup> {
                         SizedBox(
                           width: 10,
                         ),
-                        Text("buyer")
+                        Text("collect")
                       ],
                     )
                   ],
@@ -175,18 +175,18 @@ class _singup extends State<singup> {
                                 types: types);
                             Databaseapp.instance.create(su);
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Sumbimited")),
+                              SnackBar(content: Text("ins")),
                             );
                           }
                         },
-                        child: const Text('Sing-up'),
+                        child: const Text('insciré'),
                       ),
-                      Text("Got a Account?"),
+                      Text("vous avez un compte?"),
                       TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                           },
-                          child: Text('Login'))
+                          child: Text('Connectez-vous'))
                     ],
                   )),
                 ),

@@ -144,4 +144,13 @@ class Databaseapp {
       ''');
     return result;
   }
+
+  Future<int> deletetrashbyid(int? id) async {
+    final db = await instance.database;
+    return await db.delete(
+      tableTrash,
+      where: '${trashfiled.id_trash} = ? ',
+      whereArgs: [id],
+    );
+  }
 }
