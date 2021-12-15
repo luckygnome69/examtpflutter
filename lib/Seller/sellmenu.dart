@@ -29,7 +29,7 @@ class _sellmenuState extends State<sellmenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Post item"),
+        title: Text("dépôt"),
       ),
       body: Container(
           padding: EdgeInsets.fromLTRB(20, 40, 20, 10),

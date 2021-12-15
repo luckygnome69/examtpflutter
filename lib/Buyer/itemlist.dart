@@ -27,7 +27,7 @@ class _itemlistState extends State<itemlist> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Buyer"),
+        title: Text("collect"),
       ),
       body: FutureBuilder<List>(
         future: getTrashlist(
@@ -43,7 +43,7 @@ class _itemlistState extends State<itemlist> {
               Row(
                 children: [
                   Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       height: MediaQuery.of(context).size.height * 0.2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -55,17 +55,17 @@ class _itemlistState extends State<itemlist> {
                               itemBuilder: (context, index) {
                                 return Container(
                                   child: Column(children: [
-                                    Text('${ar[index]['Quant']}'),
-                                    Text('${ar[index]['Price']}'),
-                                    Text('${ar[index]['adress']}'),
-                                    Text('${ar[index]['Date']}'),
+                                    Text('Quantité :  ${ar[index]['Quant']}'),
+                                    Text('Prix :  ${ar[index]['Price']}'),
+                                    Text('Adress : ${ar[index]['adress']}'),
+                                    Text('Date : ${ar[index]['Date']}'),
                                   ]),
                                 );
                               })
                         ],
                       )),
                   Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       child: Image.asset('images/icon.png')),
                 ],
               ),
@@ -78,8 +78,8 @@ class _itemlistState extends State<itemlist> {
                   int a = await Databaseapp.instance.deletetrashbyid(widget.id);
                   Navigator.pop(context);
                   int pay = prix * qaunt;
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text("${pay}")));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("vous aver payer ${pay}")));
                 },
                 child: Text(
                   "Payé",

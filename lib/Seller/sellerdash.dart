@@ -26,7 +26,7 @@ class _sellerdash extends State<sellerdash> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Seller"),
+        title: Text("dépôt"),
       ),
       body: FutureBuilder<Users>(
         future: getuserbyid(
@@ -40,30 +40,66 @@ class _sellerdash extends State<sellerdash> {
                 children: [
                   Container(
                       width: MediaQuery.of(context).size.width * 0.5,
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.25,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              "Welcome :",
+                              "Bienvenue :",
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          Container(
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                '${ar.name}  ${ar.lastname}',
-                                style: TextStyle(fontSize: 20),
+                          Row(
+                            children: [
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(' Nom : ',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                      )),
+                                ),
                               ),
-                            ),
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(' ${ar.name} ',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontStyle: FontStyle.italic,
+                                      )),
+                                ),
+                              ),
+                            ],
                           ),
+                          Row(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(' prenom : ',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    )),
+                              ),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(' ${ar.lastname} ',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontStyle: FontStyle.italic,
+                                    )),
+                              ),
+                            ],
+                          )
                         ],
                       )),
                   Container(
@@ -84,7 +120,7 @@ class _sellerdash extends State<sellerdash> {
                   );
                 },
                 child: Text(
-                  "SELL",
+                  "Dépot",
                   style: TextStyle(fontSize: 35),
                 ),
                 style: ElevatedButton.styleFrom(
